@@ -5,6 +5,7 @@ import cryptoRoutes from "./routes/cryptoRoutes.js"
 import fetchCryptoData from "./jobs/fetchCryptoJob.js";
 import cron from "node-cron"
 
+
 dotenv.config();
 
 const app = express();
@@ -15,6 +16,7 @@ connectDB();
 
 // Routes
 app.use("/api", cryptoRoutes);
+
 
 // Schedule the job to run every 2 hours
 cron.schedule("0 */2 * * *", fetchCryptoData);
